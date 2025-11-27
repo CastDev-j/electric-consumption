@@ -7,14 +7,21 @@ import {
   AlertCircle,
   Sparkles,
   BarChart3,
+  FileText,
 } from "lucide-react";
 import Dashboard from "@/components/dashboard";
 import HistoricoView from "@/components/historico-view";
 import PrediccionesView from "@/components/predicciones-view";
 import AnalisisView from "@/components/analisis-view";
+import DocumentoView from "@/components/documento-view";
 import { useAppStore } from "@/lib/store";
 
-type TabType = "dashboard" | "historico" | "predicciones" | "analisis";
+type TabType =
+  | "dashboard"
+  | "historico"
+  | "predicciones"
+  | "analisis"
+  | "documento";
 
 export default function Home() {
   const { activeTab, setActiveTab } = useAppStore();
@@ -24,6 +31,7 @@ export default function Home() {
     { id: "historico" as TabType, label: "Histórico", icon: TrendingUp },
     { id: "predicciones" as TabType, label: "Predicciones", icon: Sparkles },
     { id: "analisis" as TabType, label: "Análisis", icon: AlertCircle },
+    { id: "documento" as TabType, label: "Documento", icon: FileText },
   ];
 
   return (
@@ -98,6 +106,7 @@ export default function Home() {
             {activeTab === "historico" && <HistoricoView />}
             {activeTab === "predicciones" && <PrediccionesView />}
             {activeTab === "analisis" && <AnalisisView />}
+            {activeTab === "documento" && <DocumentoView />}
           </motion.div>
         </AnimatePresence>
       </main>

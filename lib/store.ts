@@ -9,13 +9,18 @@ interface ConsumoData {
 
 interface AppState {
   consumoData: ConsumoData[];
-  activeTab: "dashboard" | "historico" | "predicciones" | "analisis";
+  activeTab:
+    | "dashboard"
+    | "historico"
+    | "predicciones"
+    | "analisis"
+    | "documento";
   isLoading: boolean;
   setConsumoData: (data: ConsumoData[]) => void;
   addConsumoData: (data: ConsumoData) => void;
   deleteConsumoData: (index: number) => void;
   setActiveTab: (
-    tab: "dashboard" | "historico" | "predicciones" | "analisis"
+    tab: "dashboard" | "historico" | "predicciones" | "analisis" | "documento"
   ) => void;
   setLoading: (loading: boolean) => void;
 }
